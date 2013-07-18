@@ -1,0 +1,25 @@
+body {
+  background-color: black;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: lightgrey;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+#content {
+  margin: 0px auto;
+  width: 800px;
+}
+
+#canvas {
+  background-color: black;
+  width: 800px;
+  height: 800px;
+  margin: 20px 0px;
+  overflow: hidden;
+}
