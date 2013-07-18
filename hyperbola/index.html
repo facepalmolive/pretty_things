@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hyperbolas</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet'
+    type='text/css'>
+    <link rel="stylesheet" href="../lib/css/pretty_things/common.css" />
+
+    <script src="../lib/js/three.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="hyperbola.js"></script>
+
+    <script>
+      $.noConflict();
+      jQuery(document).ready(function() {
+          hyperbola.init(jQuery('#canvas').width(), jQuery('#canvas').height());
+          hyperbola.drawLines();
+          hyperbola.render();
+          jQuery('#canvas').append(hyperbola.renderer.domElement);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="content">
+      <h1>Connect-the-Dots for Big Kids</h1>
+      <p>
+        We did this stuff in fifth grade. I thought it looked pretty neat at the time. I think they
+        were trying to teach us Cartesian coordinates.
+      </p>
+      <p>
+        It's connect-the-dots for big kids, essentially.
+      </p>
+
+      <div id="canvas">
+      </div>
+    </div>
+  </body>
+</html>
