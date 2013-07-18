@@ -1,9 +1,9 @@
 body {
-  background-color: dimgrey;
+  background-color: black;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: lightgrey;
+  color: darkgrey;
 }
 
 h1 {
