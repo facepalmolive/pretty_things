@@ -4,7 +4,7 @@ var hyperbola = {
     COLOR_TO: new util.color.Color(0xff00ff),
 
     init: function(canvasWidth, canvasHeight) {
-        var renderer = new THREE.CanvasRenderer();
+        var renderer = new THREE.WebGLRenderer();
         renderer.setSize(canvasWidth, canvasHeight);
 
         var ratio = canvasWidth / canvasHeight;
