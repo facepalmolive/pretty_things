@@ -34,8 +34,8 @@ var hyperbola = {
 
             var gradient = i / this.MAX;
             var material = new THREE.LineBasicMaterial({
-                color: this.COLOR_FROM.scale(1 - gradient).hex +
-                       this.COLOR_TO.scale(gradient).hex,
+                color: this.COLOR_FROM.scale(1 - gradient).hex() +
+                       this.COLOR_TO.scale(gradient).hex(),
             });
 
             this.scene.add(new THREE.Line(geometry, material));
