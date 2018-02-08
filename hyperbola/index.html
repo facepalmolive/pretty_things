@@ -15,10 +15,33 @@
     <script>
       $.noConflict();
       jQuery(document).ready(function() {
-          hyperbola.init(jQuery('#canvas').width(), jQuery('#canvas').height());
-          hyperbola.drawLines();
-          hyperbola.render();
-          jQuery('#canvas').append(hyperbola.renderer.domElement);
+          var CANVAS_MAX = 60;
+          var COLOR_FROM = new util.color.Color(0x0000ff);
+          var COLOR_TO = new util.color.Color(0xff00ff);
+
+          var width = jQuery('#canvas').width();
+          var height = jQuery('#canvas').height();
+          var camera = new THREE.OrthographicCamera(
+              -CANVAS_MAX * (width / height), CANVAS_MAX * (width / height),
+              CANVAS_MAX, -CANVAS_MAX,
+              -CANVAS_MAX, CANVAS_MAX);
+          var canvas = util.canvas.Canvas(width, height, camera);
+
+          var scene = canvas.scene();
+          var g = new THREE.Geometry();
+          g.vertices.push(new THREE.Vector3(0, 59, 0));
+          g.vertices.push(new THREE.Vector3(1, 0, 0));
+          g.vertices.push(new THREE.Vector3(0, -59, 0));
+          g.vertices.push(new THREE.Vector3(-1, 0, 0));
+          g.vertices.push(new THREE.Vector3(0, 59, 0));
+          var m = new THREE.LineBasicMaterial({
+              color: 0xffff00,
+          });
+          scene.add(new THREE.Line(g, m));
+
+          hyperbola.drawLines(canvas.scene(), COLOR_FROM, COLOR_TO, CANVAS_MAX);
+          canvas.render();
+          jQuery('#canvas').append(canvas.domElement());
       });
     </script>
   </head>
